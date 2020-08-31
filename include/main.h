@@ -4,4 +4,6 @@
 #ifndef FRACTALGENERATOR_MAIN_H
 #define FRACTALGENERATOR_MAIN_H
 
+#include "config.h"
+
 #endif //FRACTALGENERATOR_MAIN_H

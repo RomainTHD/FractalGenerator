@@ -1,0 +1,5 @@
+* text=auto
+*.c     text diff=c linguist-language=c
+*.h     text diff=c linguist-language=c
+
+libs/* linguist-vendored

@@ -4,7 +4,10 @@
 #ifndef FRACTALGENERATOR_CONFIG_H
 #define FRACTALGENERATOR_CONFIG_H
 
+#include <stdint.h>
+
 #include "fractal.h"
+#include "types.h"
 
 /**
  * Config
@@ -13,27 +16,27 @@ typedef struct {
     /**
      * Position X
      */
-    double x;
+    PreciseDouble x;
 
     /**
      * Position Y
      */
-    double y;
+    PreciseDouble y;
 
     /**
      * Taille de la fenêtre
      */
-    int windowSize;
+    uint16_t windowSize;
 
     /**
      * Niveau de zoom
      */
-    double zoom;
+    PreciseDouble zoom;
 
     /**
      * Nombre d'itérations
      */
-    int nbIter;
+    uint16_t nbIter;
 
     /**
      * Titre de la fenêtre

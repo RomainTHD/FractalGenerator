@@ -4,6 +4,8 @@
 #ifndef FRACTALGENERATOR_FRACTAL_H
 #define FRACTALGENERATOR_FRACTAL_H
 
+#include <stdint.h>
+
 #include "complex.h"
 
 /**
@@ -16,12 +18,12 @@ typedef enum {JULIA_SET, MANDELBROT_SET} FractalType;
  * <code>sequenceLimit</code> en suivant l'équation <code>z = z<sup>2</sup> + c</code>
  *
  * @param z Nombre de base
- * @param c Incrément
+ * @param inc Incrément
  * @param iterMax Nombre d'itérations max
  * @param sequenceLimit Limite de la séquence
  *
  * @return Nombre d'itérations
  */
-static int sequence(Complex z, Complex c, int iterMax, double sequenceLimit);
+uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimit);
 
 #endif //FRACTALGENERATOR_FRACTAL_H

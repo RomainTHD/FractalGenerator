@@ -10,7 +10,7 @@ Complex cloneComplex(Complex c) {
     };
 }
 
-Complex createComplex(double re, double im) {
+Complex createComplex(PreciseDouble re, PreciseDouble im) {
     return (Complex) {
         .re = re,
         .im = im
@@ -21,11 +21,11 @@ bool equalComplex(Complex c1, Complex c2) {
     return (c1.re == c2.re && c1.im == c2.im);
 }
 
-void setRe(Complex* c, double re) {
+void setRe(Complex* c, PreciseDouble re) {
     c->re = re;
 }
 
-void setIm(Complex* c, double im) {
+void setIm(Complex* c, PreciseDouble im) {
     c->im = im;
 }
 

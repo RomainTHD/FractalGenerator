@@ -6,5 +6,6 @@
 
 #include "config.h"
 #include "display.h"
+#include "fractal.h"
 
 #endif //FRACTALGENERATOR_MAIN_H

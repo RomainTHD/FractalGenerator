@@ -7,11 +7,8 @@
 #include <stdint.h>
 
 #include "complex.h"
-
-/**
- * Type de fractale
- */
-typedef enum {JULIA_SET, MANDELBROT_SET} FractalType;
+#include "display.h"
+#include "config.h"
 
 /**
  * Séquence d'une fractale, i.e. nombre d'itérations nécessaires au module de z pour atteindre
@@ -24,6 +21,24 @@ typedef enum {JULIA_SET, MANDELBROT_SET} FractalType;
  *
  * @return Nombre d'itérations
  */
-uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimit);
+static uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimit);
+
+/**
+ * Calcule la couleur selon la valeur
+ *
+ * @param val Valeur
+ * @param max Max
+ *
+ * @return Couleur
+ */
+Color getColor(uint16_t val, uint16_t max);
+
+/**
+ * Calcule une image
+ *
+ * @param config Configuration
+ * @param renderer Renderer
+ */
+void calculateImage(Config* config, Renderer* renderer);
 
 #endif //FRACTALGENERATOR_FRACTAL_H

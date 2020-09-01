@@ -5,5 +5,6 @@
 #define FRACTALGENERATOR_MAIN_H
 
 #include "config.h"
+#include "display.h"
 
 #endif //FRACTALGENERATOR_MAIN_H

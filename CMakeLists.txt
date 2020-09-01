@@ -11,18 +11,24 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 include_directories(./include)
 
-set(SOURCE_FILES
-        src/main.c
-        src/config.c
-        src/complex.c src/fractal.c)
-
 set(HEADER_FILES
-        include/main.h
+        include/complex.h
         include/config.h
+        include/display.h
         include/fractal.h
-        include/complex.h)
+        include/main.h
+        include/types.h
+        )
 
-add_executable(FractalGenerator ${SOURCE_FILES} ${HEADER_FILES})
+set(SOURCE_FILES
+        src/complex.c
+        src/config.c
+        src/display.c
+        src/fractal.c
+        src/main.c
+        )
+
+add_executable(FractalGenerator ${HEADER_FILES} ${SOURCE_FILES})
 
 target_link_libraries(FractalGenerator ${SDL2_LIBRARIES})
 target_link_libraries(FractalGenerator m)

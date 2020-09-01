@@ -4,12 +4,13 @@
 #include "config.h"
 
 Config config = {
-        .x = 1.0,
-        .y = 1.0,
+        .x = -1.,
+        .y = 0.,
 
         .windowSize = 600,
-        .zoom = 1.0,
-        .nbIter = 10,
+        .zoom = 250.,
+        .nbIter = 40,
+        .precision = 10.,
 
         .title = "Fractal generator",
 

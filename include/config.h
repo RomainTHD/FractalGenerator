@@ -6,7 +6,6 @@
 
 #include <stdint.h>
 
-#include "fractal.h"
 #include "types.h"
 
 /**
@@ -37,6 +36,11 @@ typedef struct {
      * Nombre d'itérations
      */
     uint16_t nbIter;
+
+    /**
+     * Précision, valeur à atteindre avant de conclure à une divergence
+     */
+    PreciseDouble precision;
 
     /**
      * Titre de la fenêtre

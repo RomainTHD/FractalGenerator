@@ -1,6 +1,5 @@
-//
+// SPDX-License-Identifier: GPL-3.0-or-later
 // Created by Romain on 01/09/2020.
-//
 
 #ifndef FRACTALGENERATOR_TYPES_H
 #define FRACTALGENERATOR_TYPES_H

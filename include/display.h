@@ -20,6 +20,9 @@ typedef SDL_Window Window;
  */
 typedef SDL_Renderer Renderer;
 
+/**
+ * Type couleur
+ */
 typedef struct {
     uint8_t r;
     uint8_t g;

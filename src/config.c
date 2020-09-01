@@ -4,15 +4,18 @@
 #include "config.h"
 
 Config config = {
-        .x = -1.,
+        .x = 0.,
         .y = 0.,
 
         .windowSize = 600,
-        .zoom = 250.,
-        .nbIter = 40,
-        .precision = 10.,
+        .zoom = 10e4,
+        .nbIter = 200,
+        .precision = 10e5,
 
         .title = "Fractal generator",
 
-        .fractalType = MANDELBROT_SET
+        .fractalType = JULIA_SET,
+
+        .juliaRe = -0.55,
+        .juliaIm = 0.55
 };

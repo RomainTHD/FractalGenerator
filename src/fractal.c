@@ -3,11 +3,11 @@
 
 #include "fractal.h"
 
-uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimit) {
+uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimitSq) {
     for (uint16_t i = 0; i < iterMax; i++) {
         z = addComplex(multComplex(z, z), inc);
 
-        if (modulusComplex(z) > sequenceLimit) {
+        if (modulusComplexSq(z) > sequenceLimitSq) {
             return i;
         }
     }
@@ -38,26 +38,18 @@ Color getColor(uint16_t val, uint16_t max) {
     return c;
 }
 
-void calculateImage(Config* config, Renderer* renderer) {
-    PreciseDouble width = (PreciseDouble) config->windowSize / config->zoom;
-    PreciseDouble height = (PreciseDouble) config->windowSize / config->zoom;
+void calculateImage(const Config* const config, Renderer* renderer) {
+    const PreciseDouble width = (PreciseDouble) config->windowSize / config->zoom;
+    const PreciseDouble height = (PreciseDouble) config->windowSize / config->zoom;
 
-    PreciseDouble x0 = config->x - width / 2.;
-    PreciseDouble y0 = config->y - height / 2.;
+    const PreciseDouble x0 = config->x - width / 2.;
+    const PreciseDouble y0 = config->y - height / 2.;
 
-    printf("x0: %.15Lf\n", x0);
-    printf("y0: %.15Lf\n", y0);
-    printf("x1: %.15Lf\n", x0 + width);
-    printf("y1: %.15Lf\n", y0 + height);
-    printf("w: %.15Lf\n", width);
-    printf("h: %.15Lf\n", height);
+    const Complex juliaInc = createComplex(config->juliaRe, config->juliaIm);
 
-    /*
-    const Complex inc = createComplex(
-            width / (PreciseDouble) config->windowSize,
-            height / (PreciseDouble) config->windowSize
-            );
-    */
+    const Complex zero = createComplex(0, 0);
+
+    const PreciseDouble precisionSq = config->precision * config->precision;
 
     for (uint16_t x = 0; x < config->windowSize; x++) {
         for (uint16_t y = 0; y < config->windowSize; y++) {
@@ -66,15 +58,27 @@ void calculateImage(Config* config, Renderer* renderer) {
                     y0 + (height * y) / (PreciseDouble) config->windowSize
                     );
 
-            uint16_t s = sequence(
-                    createComplex(0, 0),
-                    z,
-                    config->nbIter,
-                    config->precision
-                    );
+            uint16_t seq;
 
-            if (s != config->nbIter) {
-                setPixel(renderer, x, y, getColor(s, config->nbIter));
+            if (config->fractalType == JULIA_SET) {
+                seq = sequence(
+                        z,
+                        juliaInc,
+                        config->nbIter,
+                        precisionSq
+                );
+            }
+            else {
+                 seq = sequence(
+                         zero,
+                         z,
+                         config->nbIter,
+                         precisionSq
+                );
+            }
+
+            if (seq != config->nbIter) {
+                setPixel(renderer, x, y, getColor(seq, config->nbIter));
             }
         }
     }

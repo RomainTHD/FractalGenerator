@@ -51,6 +51,16 @@ typedef struct {
      * Type de fractale
      */
     FractalType fractalType;
+
+    /**
+     * Partie réelle Julia
+     */
+    PreciseDouble juliaRe;
+
+    /**
+     * Partie imaginaire Julia
+     */
+    PreciseDouble juliaIm;
 } Config;
 
 #endif //FRACTALGENERATOR_CONFIG_H

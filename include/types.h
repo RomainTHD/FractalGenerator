@@ -12,4 +12,9 @@
  */
 typedef long double PreciseDouble;
 
+/**
+ * Type de fractale
+ */
+typedef enum {JULIA_SET, MANDELBROT_SET} FractalType;
+
 #endif //FRACTALGENERATOR_TYPES_H

@@ -31,16 +31,17 @@ uint8_t initDisplay(Config* config, Window** window, Renderer** renderer) {
         SDL_SetRenderDrawBlendMode(*renderer, SDL_BLENDMODE_ADD);
         return EXIT_SUCCESS;
     }
+
 }
 
-void display(Config* config, Renderer* renderer) {
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+void resetDisplay(Renderer* renderer) {
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(renderer);
+    updateDisplay(renderer);
+}
+
+void updateDisplay(Renderer* renderer) {
     SDL_RenderPresent(renderer);
-
-    // calculateImage(config, )
-
-    // SDL_RenderPresent(renderer);
 }
 
 void processEvents() {
@@ -57,3 +58,7 @@ void exitDisplay(Window* window) {
     SDL_DestroyWindow(window);
 }
 
+void setPixel(Renderer* renderer, uint16_t x, uint16_t y, Color c) {
+    SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, c.a);
+    SDL_RenderDrawPoint(renderer, x, y);
+}

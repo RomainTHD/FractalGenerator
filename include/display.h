@@ -6,6 +6,7 @@
 
 #include <stdint.h>
 #include <SDL.h>
+#include <stdbool.h>
 
 #include "config.h"
 
@@ -19,6 +20,13 @@ typedef SDL_Window Window;
  */
 typedef SDL_Renderer Renderer;
 
+typedef struct {
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+    uint8_t a;
+} Color;
+
 /**
  * Initialise l'affichage
  *
@@ -31,12 +39,25 @@ typedef SDL_Renderer Renderer;
 uint8_t initDisplay(Config* config, Window** window, Renderer** renderer);
 
 /**
- * Affichage
+ * Reset l'affichage
  *
- * @param config Config
  * @param renderer Renderer
  */
-void display(Config* config, Renderer* renderer);
+void resetDisplay(Renderer* renderer);
+
+/**
+ * Met à jour l'affichage
+ *
+ * @param renderer Renderer0
+ */
+void updateDisplay(Renderer* renderer);
+
+/**
+ * Set un pixel
+ *
+ * @param renderer
+ */
+void setPixel(Renderer* renderer, uint16_t x, uint16_t y, Color c);
 
 /**
  * Gestion des évènements

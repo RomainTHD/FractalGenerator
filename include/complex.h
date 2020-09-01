@@ -69,7 +69,16 @@ void setIm(Complex* c, PreciseDouble im);
  *
  * @return Module
  */
-double modulusComplex(Complex c);
+PreciseDouble modulusComplex(Complex c);
+
+/**
+ * Calcule le carré du module d'un complexe, i.e. <code>re<sup>2</sup> + im<sup>2</sup></code>
+ *
+ * @param c Complexe
+ *
+ * @return Module au carré
+ */
+PreciseDouble modulusComplexSq(Complex c);
 
 /**
  * Somme deux complexes

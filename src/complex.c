@@ -29,8 +29,12 @@ void setIm(Complex* c, PreciseDouble im) {
     c->im = im;
 }
 
-double modulusComplex(Complex c) {
+PreciseDouble modulusComplex(Complex c) {
     return sqrt(c.re*c.re + c.im*c.im);
+}
+
+PreciseDouble modulusComplexSq(Complex c) {
+    return c.re*c.re + c.im*c.im;
 }
 
 Complex addComplex(Complex c1, Complex c2) {

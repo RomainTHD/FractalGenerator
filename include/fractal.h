@@ -17,11 +17,11 @@
  * @param z Nombre de base
  * @param inc Incrément
  * @param iterMax Nombre d'itérations max
- * @param sequenceLimit Limite de la séquence
+ * @param sequenceLimitSq Limite de la séquence au carré
  *
  * @return Nombre d'itérations
  */
-static uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimit);
+static uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimitSq);
 
 /**
  * Calcule la couleur selon la valeur
@@ -39,6 +39,6 @@ Color getColor(uint16_t val, uint16_t max);
  * @param config Configuration
  * @param renderer Renderer
  */
-void calculateImage(Config* config, Renderer* renderer);
+void calculateImage(const Config* config, Renderer* renderer);
 
 #endif //FRACTALGENERATOR_FRACTAL_H

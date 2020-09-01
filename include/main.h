@@ -4,6 +4,10 @@
 #ifndef FRACTALGENERATOR_MAIN_H
 #define FRACTALGENERATOR_MAIN_H
 
+#include <time.h>
+#include <stdio.h>
+#include <stdbool.h>
+
 #include "config.h"
 #include "display.h"
 #include "fractal.h"

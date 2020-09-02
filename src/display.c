@@ -14,12 +14,26 @@ uint8_t initDisplay(Config* config, Window** window, Renderer** renderer) {
     // Quitte la SDL à la fin du programme
     atexit(SDL_Quit);
 
-    SDL_CreateWindowAndRenderer(
+    SDL_DisplayMode dm;
+
+    if (SDL_GetDesktopDisplayMode(0, &dm) != 0) {
+        SDL_Log("SDL_GetDesktopDisplayMode failed: %s", SDL_GetError());
+        return EXIT_FAILURE;
+    }
+
+    *window = SDL_CreateWindow(
+            config->title,
+            dm.w / 2 - config->windowSize / 2,
+            dm.h / 2 - config->windowSize / 2,
             config->windowSize,
             config->windowSize,
-            0,
-            window,
-            renderer
+            0
+            );
+
+    *renderer = SDL_CreateRenderer(
+            *window,
+            -1,
+            SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
             );
 
     if (window == NULL) {

@@ -21,7 +21,7 @@
  *
  * @return Nombre d'itérations
  */
-static uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimitSq);
+uint16_t sequence(Complex z, Complex inc, uint16_t iterMax, PreciseDouble sequenceLimitSq);
 
 /**
  * Calcule la couleur selon la valeur

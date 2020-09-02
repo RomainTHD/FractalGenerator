@@ -14,9 +14,6 @@ Fractales, ensembles de Mandelbrot, ensembles de Julia, tout ça
 
 ![Ensemble de Mandelbrot, low res](img/Mandelbrot-low.png)
 
-<i>Ensemble de Mandelbrot<br>
-zoom = 10e2, nbIter = 100, precision = 25, pos = (-1., -0.25)</i>
-
 <i>Ensemble de Mandelbrot
 * pos: (-1., -0.25)
 * zoom: 10e2
